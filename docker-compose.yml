@@ -25,7 +25,7 @@ services:
 
   redis:
     build: redis
-    image: water/redis
+    image: redis-3.0
     depends_on:
       - "alpine"
     ports:
@@ -56,7 +56,6 @@ services:
       - redis
     volumes:
       - "./volumes/apps:/apps"
-      - "/Users/quoyle/workspace/php:/apps/php"
     environment:
       PHP_XDEBUG_ENABLED: 1 # Set 1 to enable.
       XDEBUG_CONFIG: remote_host=10.254.254.254

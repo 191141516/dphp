@@ -38,7 +38,8 @@ RUN apk add php7-common@community \
         php7-ldap@community \
         php7-openssl@community \
         php7-bcmath@community \
-        php7-tokenizer@community
+        php7-tokenizer@community \
+        php7-pcntl@community
 
 #RUN ln -s /usr/bin/php7 /usr/bin/php
 

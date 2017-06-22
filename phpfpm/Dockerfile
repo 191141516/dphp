@@ -3,36 +3,37 @@ MAINTAINER water youwater@gmail.com
 
 # 软件包安装
 RUN apk update
-RUN apk add php5 \
-	php5-fpm \
-	php5-opcache \
-	php5-intl \
-    php5-mcrypt \
-    php5-openssl \
-    php5-gmp \
-    php5-json \
-    php5-dom \
-    php5-pdo \
-    php5-zip \
-    php5-zlib \
-    php5-mysql \
-    php5-mysqli \
-    php5-bcmath \
-    php5-gd \
-    php5-xcache \
-    php5-pdo_mysql \
-    php5-gettext \
-    php5-xml \
-    php5-xmlreader \
-    php5-xmlrpc \
-    php5-bz2 \
-    php5-memcache \
-    php5-iconv \
-    php5-curl \
-    php5-ctype \
-    php5-phar \
-    php5-redis@testing \
+RUN apk add php5@community \
+	php5-fpm@community \
+	php5-opcache@community \
+	php5-intl@community \
+    php5-mcrypt@community \
+    php5-openssl@community \
+    php5-gmp@community \
+    php5-json@community \
+    php5-dom@community \
+    php5-pdo@community \
+    php5-zip@community \
+    php5-zlib@community \
+    php5-mysql@community \
+    php5-mysqli@community \
+    php5-bcmath@community \
+    php5-gd@community \
+    php5-pdo_mysql@community \
+    php5-gettext@community \
+    php5-xml@community \
+    php5-xmlreader@community \
+    php5-xmlrpc@community \
+    php5-bz2@community \
+    php5-iconv@community \
+    php5-curl@community \
+    php5-ctype@community \
+    php5-phar@community \
+    openssl
+    php5-redis@community \
     php5-xdebug@community \
+    php5-memcache@community \
+    php5-xcache@community \
     openssl
 
 # 从国内镜像安装composer，并配置成默认从国内镜像安装composer包
