@@ -44,6 +44,22 @@ services:
       - "./volumes/mongodb:/data/db"
     restart: always
 
+  nodejs:
+    build: nodejs
+    image: water/nodejs
+    depends_on:
+      - "alpine"
+    links:
+      - mysql
+      - redis
+      - mongodb
+    ports:
+      - "3000:3000"
+    command: "tail -f /dev/null"
+    volumes:
+      - "/Users/quoyle/workspace/front:/apps/front"
+    restart: always
+
   # php5配置
   # phpfpm:
   #   build: phpfpm
