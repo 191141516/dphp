@@ -39,13 +39,22 @@ RUN apk add php7-common@community \
         php7-openssl@community \
         php7-bcmath@community \
         php7-tokenizer@community \
-        php7-pcntl@community
+        php7-pcntl@community \
+        php7-fileinfo@community \
+        php7-simplexml@community \
+        php7-xmlwriter@community \
+        php7-xmlreader@community
 
 #RUN ln -s /usr/bin/php7 /usr/bin/php
 
 # 从国内镜像安装composer，并配置成默认从国内镜像安装composer包
 RUN php -r "readfile('http://install.phpcomposer.com/installer');" | php -- --install-dir=/bin/ --filename=composer
 RUN composer config -g repo.packagist composer https://packagist.phpcomposer.com
+
+ADD blackfire /blackfire
+
+RUN cd /blackfire && cp /blackfire/blackfire.so /usr/lib/php7/modules/blackfire.so \
+ && printf "extension=blackfire.so\nblackfire.agent_socket=tcp://blackfire:8707\n" > /etc/php7/conf.d/blackfire.ini
 
 # 软件包参数配置
 ENV PHP_MEMORY_LIMIT 512M
