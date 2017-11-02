@@ -57,7 +57,7 @@ services:
       - "3000:3000"
     command: "tail -f /dev/null"
     volumes:
-      - "/Users/quoyle/workspace/front:/apps/front"
+      - "./volumes/apps:/apps"
     restart: always
 
   # php5配置
@@ -84,7 +84,6 @@ services:
       - redis
     volumes:
       - "./volumes/apps:/apps"
-      - "/Users/quoyle/workspace/php:/apps/php"
     environment:
       PHP_XDEBUG_ENABLED: 1 # Set 1 to enable.
       XDEBUG_CONFIG: remote_host=10.254.254.254
@@ -102,8 +101,7 @@ services:
     volumes_from:
       - phpfpm7
     volumes:
-      - "/Users/quoyle/workspace/docker/dphp/nginx/conf/vhosts.conf:/etc/nginx/conf.d/vhosts.conf"
-      - "/Users/quoyle/workspace/docker/dphp/nginx/conf/ca:/etc/nginx/conf.d/ca"
+      - "./nginx/conf/conf.d:/etc/nginx/conf.d"
     ports:
       - "80:80"
       - "443:443"

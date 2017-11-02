@@ -9,7 +9,7 @@ RUN mkdir /run/nginx
 RUN mkdir /apps
 RUN mkdir -p /usr/share/nginx/html
 COPY conf/nginx.conf /etc/nginx/
-COPY conf/vhosts.conf /etc/nginx/conf.d/
+COPY conf/conf.d /etc/nginx/conf.d
 
 # 端口号配置
 EXPOSE 80

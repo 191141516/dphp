@@ -51,11 +51,6 @@ RUN apk add php7-common@community \
 RUN php -r "readfile('http://install.phpcomposer.com/installer');" | php -- --install-dir=/bin/ --filename=composer
 RUN composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
-ADD blackfire /blackfire
-
-RUN cd /blackfire && cp /blackfire/blackfire.so /usr/lib/php7/modules/blackfire.so \
- && printf "extension=blackfire.so\nblackfire.agent_socket=tcp://blackfire:8707\n" > /etc/php7/conf.d/blackfire.ini
-
 # 软件包参数配置
 ENV PHP_MEMORY_LIMIT 512M
 ENV MAX_UPLOAD 50M
